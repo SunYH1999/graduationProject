@@ -1,7 +1,7 @@
 const {genUuid} = require('../utils');
 const Sequelize = require('sequelize');
 
-var sequelize = new Sequelize('job', 'root', '12345678', {
+var sequelize = new Sequelize('mysql', 'root', '00000000', {
   pool: {
     max: 5,
     min: 0,
