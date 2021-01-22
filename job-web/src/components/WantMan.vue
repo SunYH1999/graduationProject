@@ -1,6 +1,5 @@
 <template>
     <div class="wantMan">
-		<!-- 轮播图==做广告位 -->
         <Slider />
         <div class="man">
             <div class="list" v-for="item in list" :key="item.id">

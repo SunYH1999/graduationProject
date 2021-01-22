@@ -30,7 +30,6 @@
         },
         methods: {
             jumpRouter(){
-				// 如果没登录
                 if(!localStorage.recruitUserInfo){
                     this.$router.push({
                         path: '/user/login'
@@ -38,8 +37,7 @@
                 }
                 let userInfo = getUserInfo()
                 console.log(`userInfo.role = ${userInfo.role}`)
-				
-				// 求职者1，招聘者2，超级管理员3
+
                 if(userInfo.role == 1){
                     this.$router.push({
                         path: '/wantjob'
