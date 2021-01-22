@@ -1,5 +1,4 @@
 <template>
-    <!--轮播图组件-->
     <div class="slider">
         <el-carousel indicator-position="outside">
             <el-carousel-item>
