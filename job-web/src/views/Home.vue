@@ -10,6 +10,7 @@
 
 <script>
     // @ is an alias to /src
+	
     import HeaderItem from '@/components/HeaderItem.vue'
     import NavMenu from '@/components/NavMenu.vue'
     import FooterItem from '@/components/FooterItem.vue'
