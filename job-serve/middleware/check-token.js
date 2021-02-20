@@ -4,51 +4,51 @@ let whiteList = []
 
 const checkToken = async (ctx, next) => {
 
-	let res = whiteList.filter(o => new RegExp('^' + o).test(ctx.request.url)).length
+    let res = whiteList.filter(o => new RegExp('^' + o).test(ctx.request.url)).length
 
-	let {token} = ctx.request.body
+    let {token} = ctx.request.body
 
 
-	// 需要检查 但是没有传token字段
-	if (!res && !token) {
-		ctx.body = {
-			code: 403,
-			msg: '无token'
-		}
+    // 需要检查 但是没有传token字段
+    if (!res && !token) {
+        ctx.body = {
+            code: 403,
+            msg: '无token'
+        }
 
-		return false
-	}
+        return false
+    }
 
-	// 需要检查并且有token字段
-	if (!res && token) {
-		// token匹配不到用户
-		let user = await User.findOne({
-			where: {
-				token
-			}
-			
-		})
+    // 需要检查并且有token字段
+    if (!res && token) {
+        // token匹配不到用户
+        let user = await User.findOne({
+            where: {
+                token
+            }
+            
+        })
 
-		if (!user) {
-			ctx.body = {
-				code: 403,
-				msg: '无效的token'
-			}
-			return false
-		}
-		
-		ctx.user = user
+        if (!user) {
+            ctx.body = {
+                code: 403,
+                msg: '无效的token'
+            }
+            return false
+        }
+        
+        ctx.user = user
 
-		await next();
+        await next();
 
-		return false
+        return false
 
-	}
-	await next();
+    }
+    await next();
 
 }
 
 module.exports = function (list = []) {
-	whiteList = list
-	return checkToken
+    whiteList = list
+    return checkToken
 }

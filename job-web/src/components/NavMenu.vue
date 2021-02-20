@@ -1,6 +1,6 @@
 <template>
     <div class="navMenu">
-        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+        <el-menu text-color="gray" active-text-color="black" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
             <el-menu-item index="1">首页</el-menu-item>
             <el-submenu index="2" v-if="this.role != 3">
                 <template slot="title">岗位</template>
@@ -110,7 +110,8 @@
     }
 </script>
 
-<style lang="stylus" scoped>
-    .navMenu
-        margin-bottom 30px
+<style scoped>
+    .navMenu {
+		margin-bottom: 30px;
+	}
 </style>

@@ -5,9 +5,9 @@ const category = require('./category');
 const job = require('./job');
 
 module.exports = {
-	user,
-	resume,
-	company,
-	category,
-	job
+    user,
+    resume,
+    company,
+    category,
+    job
 }

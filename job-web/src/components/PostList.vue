@@ -4,6 +4,7 @@
         <div class="post-list-title">
             已发布岗位列表：
         </div>
+		
         <el-table :data="tableData" style="width: 100%">
             <el-table-column label="姓名" width="220">
                 <template slot-scope="scope">

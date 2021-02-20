@@ -1,6 +1,7 @@
 <template>
     <div class="wantMan">
-        <Slider />
+		<!-- 轮播图==做广告位 -->
+        <!-- <Slider /> -->
         <div class="man">
             <div class="list" v-for="item in list" :key="item.id">
                 <div class="item">
@@ -59,43 +60,51 @@
     }
 </script>
 
-<style lang="stylus" scoped>
-    .list
-        border-left solid 2px #f6f6f8
-        border-top solid 2px #f6f6f8
-    .item
-        padding 22px 30px
-        display flex
-        justify-content space-between
-        background white
-        border-right solid 2px #f6f6f8
-        border-bottom solid 2px #f6f6f8
-        margin-right -3px
-        .left
-            text-align left
-            .name
-                .nickName
-                    font-size 16px
-                    font-weight 400
-                    max-width 170px
-                    display inline-block
-                    white-space nowrap
-                    overflow hidden
-                    text-overflow ellipsis
-                    vertical-align middle
-                .sex
-                    color #fc703e
-                    padding-left 8px
-        .content
-            text-align center
-        .right
-            text-align right
-        .bottom
-            margin-top 2px
-            font-size 12px
-            color #9fa3b0
-            width 100%
-            overflow hidden
-            text-overflow ellipsis
-            white-space nowrap
+<style scoped>
+    .list {
+		margin: 1% 5%;
+		border-left: solid 2px #f6f6f8;
+		border-top: solid 2px #f6f6f8;
+	}        
+    .item {
+		padding: 22px 30px;
+		display: flex;
+		justify-content: space-between;
+		background: white;
+		border-right: solid 2px #f6f6f8;
+		border-bottom: solid 2px #f6f6f8;
+		margin-right: -3px;
+	}
+	.left {
+		text-align: left;
+	}
+    .nickName {
+		font-size: 16px;
+		font-weight: 400;
+		max-width: 170px;
+		display: inline-block;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		vertical-align: middle;
+	}
+    .sex {
+		color: #fc703e;
+		padding-left: 8px;
+	}
+    .content {
+		text-align: center;
+	}
+    .right {
+		text-align: right;
+	}
+    .bottom {
+		margin-top: 2px;
+		font-size: 12px;
+		color: #9fa3b0;
+		width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
 </style>

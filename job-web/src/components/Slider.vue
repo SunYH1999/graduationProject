@@ -1,18 +1,22 @@
 <template>
+    <!--轮播图组件-->
     <div class="slider">
-        <el-carousel indicator-position="outside">
+        <el-carousel indicator-position="outside" arrow="always">
             <el-carousel-item>
-                <h3><img src="../assets/img/banner1.jpg" alt="" style="width: 100%"></h3>
+                <h3><img src="../assets/img/adminbg.png" alt="" style="width: 100%"></h3>
             </el-carousel-item>
             <el-carousel-item>
-                <h3><img src="../assets/img/banner2.jpg" alt="" style="width: 100%"></h3>
+                <h3><img src="../assets/img/sd.jpg" alt="" style="width: 100%"></h3>
             </el-carousel-item>
             <el-carousel-item>
                 <h3><img src="../assets/img/banner3.jpg" alt="" style="width: 100%"></h3>
             </el-carousel-item>
             <el-carousel-item>
-                <h3><img src="../assets/img/banner4.jpg" alt="" style="width: 100%"></h3>
+                <h3><img src="../assets/img/banner2.jpg" alt="" style="width: 100%"></h3>
             </el-carousel-item>
+			<el-carousel-item>
+			    <h3><img src="../assets/img/yc.png" alt="" style="width: 100%"></h3>
+			</el-carousel-item>
         </el-carousel>
     </div>
 </template>
@@ -31,7 +35,9 @@
 <style scoped>
 
     >>> .el-carousel__container {
-        height: 500px;
+		width: 80%;
+		margin: 0 auto;
+        height: 400px;
     }
     .el-carousel__item h3 {
         color: #475669;
