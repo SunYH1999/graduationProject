@@ -2,8 +2,16 @@
     <div class="wantMan">
 		<!-- 轮播图==做广告位 -->
         <!-- <Slider /> -->
+		<el-input placeholder="请输入内容" v-model="search" class="input-with-select">
+		    <el-select v-model="select" slot="prepend" placeholder="请选择">
+		      <el-option label="餐厅名" value="1"></el-option>
+		      <el-option label="订单号" value="2"></el-option>
+		      <el-option label="用户电话" value="3"></el-option>
+		    </el-select>
+		    <el-button slot="append" icon="el-icon-search"></el-button>
+		</el-input>
         <div class="man">
-            <div class="list" v-for="item in list" :key="item.id">
+            <div class="list" v-for="item in list" :key="item.id" @click="aa">
                 <div class="item">
                     <div class="left">
                         <div class="name">
@@ -19,7 +27,7 @@
                     </div>
                     <div class="right">
                         <div class="name">期望薪资：{{item.salary}}</div>
-                        <div class="bottom">已将用户信息保密，可通过邮件联系</div>
+                        <div class="bottom">求职意向：{{item.hope}}</div>
                     </div>
                 </div>
             </div>
@@ -38,10 +46,15 @@
         },
         data() {
             return {
-                list: []
+                list: [],
+				search: '',
+				select: ''
             }
         },
         methods:{
+			aa() {
+				console.log(1)
+			},
             // 获取简历列表
             getResumeList() {
                 let token = getToken();

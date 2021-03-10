@@ -198,6 +198,7 @@ const del = async (ctx) => {
     }
 }
 
+//查找岗位
 
 // 投递简历
 const delivery = async (ctx) => {
