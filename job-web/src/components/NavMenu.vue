@@ -13,6 +13,7 @@
                 <el-menu-item index="3-1" v-if="this.role == 1">我的简历</el-menu-item>
                 <el-menu-item index="3-2" v-if="this.role == 2">我收到的的简历</el-menu-item>
             </el-submenu>
+			<el-menu-item index="6" v-if="this.role != 3">资讯</el-menu-item>
             <el-submenu index="4" v-if="this.role == 2">
                 <template slot="title">公司</template>
                 <el-menu-item index="4-1">我的公司</el-menu-item>
