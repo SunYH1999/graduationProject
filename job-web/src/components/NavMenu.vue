@@ -85,6 +85,11 @@
                     this.$router.push({
                         path: '/category'
                     })
+                }else if(key == '6'){
+                    // 跳转至资讯
+                    this.$router.push({
+                        path: '/info'
+                    })
                 }
             }
         },

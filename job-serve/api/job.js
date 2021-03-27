@@ -199,6 +199,39 @@ const del = async (ctx) => {
 }
 
 //查找岗位
+// const findJob = async () => {
+//   // 查找所有
+//   const allUser = await UserModel.findAll()
+
+//   // 按id查找
+//   const oneUser = await UserModel.findById(id)
+
+//   // 按条件查询
+//   const someUser = await UserModel.findAll({
+//     where: {
+//       // 模糊查询
+//       name: {
+//         $like: '%小%',
+//       },
+
+//       // 精确查询
+//       password: 'root',
+//     }
+//   })
+
+//   // 分页查询
+//   const size = 10 // 每页10条数据
+//   const page = 1 // 页数
+//   const pageUser = await UserModel.findAndCountAll({
+//     where: {
+//       name: {
+//         $like: '%小%',
+//       },
+//     },
+//     limit: size,
+//     offset: size * (page - 1),
+//   })
+// }
 
 // 投递简历
 const delivery = async (ctx) => {

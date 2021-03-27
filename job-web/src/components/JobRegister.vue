@@ -161,6 +161,7 @@
                             console.log(`data.code= ${data.code}`)
                             if(data.code == 0){
                                 this.$alert("注册成功")
+								this.jumpLogin();
                             }else if(data.code == 1){
                                 this.$alert(data.errMsg)
                             }

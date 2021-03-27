@@ -16,6 +16,8 @@ import ResumeEdit from './components/ResumeEdit.vue'
 import MeSendPost from './components/MeSendPost'
 import CompanyAudit from './components/CompanyAudit.vue'
 import Category from './components/Category.vue'
+import Info from './components/info.vue'
+import Evaluate from './components/evaluate.vue'
 
 Vue.use(Router)
 
@@ -83,7 +85,17 @@ export default new Router({
                     path: '/category',
                     name: 'Category',
                     component: Category
-                }
+                },
+				{
+				    path: '/info',
+				    name: 'Info',
+				    component: Info
+				},
+				{
+				    path: '/evaluate',
+				    name: 'Evaluate',
+				    component: Evaluate
+				}
             ]
         },
         {
