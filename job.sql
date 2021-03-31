@@ -178,4 +178,38 @@ BEGIN;
 INSERT INTO `users` VALUES ('1320b98f127d41d5ad899894f7fb0a85', 'yuq', '123456', '2', '2570304824@qq.com', '18685574391', '688ba0ab07fe4ebd8d023613b1d8163a', '2019-11-16 03:16:05', '2019-11-16 03:16:18'), ('13c8147125c344b38c5388be38a41f65', 'xiaoming', '123123', '1', '123456789@163.com', '17777777777', '2aad178d4d9b4b98865f57238cc4522c', '2019-11-18 01:03:24', '2019-11-18 01:03:39'), ('18e5ac76901249bbada6e10ed3fe77cf', '大鹏科技', '123123', '2', 'dpkj@qzroc.com', '18800000000', 'f2fa8effd41f4de79ae81cc9b05892ec', '2019-10-18 07:47:49', '2019-10-18 07:54:12'), ('524715faf2dd11e88eb2f2801f1b9fd1', 'admin', '123456', '3', 'admin@admin.com', '13111111111', '6692c02b057c4ada985dd239c0d73208', '2018-11-28 15:14:20', '2019-12-09 02:55:19'), ('5803eaa37718453c9de66b89b0a16e83', '小UI', '123123', '1', 'xiaoui@qzroc.com', '13012345678', 'c16c626af24b400288513a21396e63ae', '2019-10-18 07:56:54', '2019-10-18 07:57:17'), ('612f79c388134fc79f514c638fff2949', 'aa', '123123', '2', 'aa@163.com', '18812341234', 'eb42f068a9f34990a2ed48a2a94dab2d', '2019-11-12 14:43:34', '2019-11-12 14:43:46'), ('810452e9913647fa8a3b41fd579f710e', 'zhaopinzhe', '123123', '2', 'zhaopinzhe@qzroc.com', '18888888888', 'fdd896410791439f888805a5045e3614', '2019-10-18 07:18:23', '2019-12-09 02:55:52'), ('8256b553c18a4d87a84e2c951c170738', 'yu', '123456', '1', '2570304823@qq.com', '18685574390', '506fd2af61e34a15861dea1aa94493a0', '2019-11-16 03:12:16', '2019-11-16 04:06:26'), ('b30f785aaac24d88b317c6f3e0ff8842', '2016011226', '123456', '1', '123@q.com', '13712345678', '7692c39d77b942c3a85b1f0cd714b495', '2019-12-06 01:48:28', '2019-12-06 01:48:48'), ('c02ef0de8ea74a41b9f009a71a488aef', 'wade', '123123', '1', '874251402@qq.com', '18359139297', '5026457471c146fe808e09945df04bf4', '2019-11-06 02:17:51', '2019-11-06 14:42:51'), ('d93454bbdd0a4c6aa80e840454bf8a6d', '123123', '123123', '1', '239599886@qq.com', '18867613031', '221468415ac2421289ce5036cadba110', '2019-10-30 14:15:11', '2019-11-09 14:35:05'), ('f2a8b2e5b25e424388d629dffb0d3879', 'qiuzhizhe', '123123', '1', 'qiuzhizhe@qzroc.com', '17712341234', '7867e421ae8d4df49b395c98bf910ede', '2019-10-18 07:18:03', '2019-11-27 13:15:11');
 COMMIT;
 
+
+
+
+
+
+-- ----------------------------
+--  Table structure for `users`
+-- ----------------------------
+DROP TABLE IF EXISTS `evaluates`;
+CREATE TABLE `evaluates` (
+  `id` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `value1` int(255) NOT NULL,
+  `value2` int(255) NOT NULL,
+  `value3` int(255) NOT NULL,
+  `value4` int(255) NOT NULL,
+  `value5` int(255) NOT NULL,
+  `companyname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `text` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE KEY `text` (`text`) USING BTREE,
+  UNIQUE KEY `companyname` (`companyname`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+--  Records of `users`
+-- ----------------------------
+
+
+
+
+
+
 SET FOREIGN_KEY_CHECKS = 1;

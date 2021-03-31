@@ -91,7 +91,7 @@
 					page: val - 1,
 					pageSize: 2
 				}).then((res) => {
-					this.total = +res.data.length
+					this.total = res.data.length
 					console.log(11111111, this.total)
 					let data = res.data
 					console.log(data)

@@ -6,6 +6,9 @@ const baseUrl = 'http://localhost:3013'
 // 注册账号
 export const register = data => post(`${baseUrl}/register`, data);
 
+//提交评价
+export const createEvaluate = data => post(`${baseUrl}/evaluate/create`, data);
+
 // 登录账号
 export const login = data => post(`${baseUrl}/login`, data);
 

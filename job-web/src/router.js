@@ -18,6 +18,7 @@ import CompanyAudit from './components/CompanyAudit.vue'
 import Category from './components/Category.vue'
 import Info from './components/info.vue'
 import Evaluate from './components/evaluate.vue'
+import Pic from './components/pic.vue'
 
 Vue.use(Router)
 
@@ -95,6 +96,11 @@ export default new Router({
 				    path: '/evaluate',
 				    name: 'Evaluate',
 				    component: Evaluate
+				},
+				{
+				    path: '/pic',
+				    name: 'Pic',
+				    component: Pic
 				}
             ]
         },

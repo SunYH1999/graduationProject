@@ -1,4 +1,4 @@
-const { Jobing, Job, Category, User, Company, Resume } = require('../db');
+const { Jobing, Job, Category, User, Company, Resume, Evaluate } = require('../db');
 
 // 岗位列表
 const list = async (ctx) => {
@@ -104,6 +104,45 @@ const create = async (ctx) => {
             condition,
         })
 
+        ctx.body = {
+            code: 0
+        }
+    } catch (err) {
+        console.log(err)
+        ctx.body = {
+            code: 1,
+            err
+        }
+    }
+}
+
+
+
+const createe = async (ctx) => {
+    try {
+        const {
+            companyname,
+            value1,
+            value2,
+            value3,
+            value4,
+    		value5,
+    		text
+        } = ctx.request.body
+    
+        // const user = ctx.user
+        
+        const user = ctx.user
+        await user.createEvaluate({
+            companyname,
+            value1,
+            value2,
+            value3,
+            value4,
+            value5,
+            text
+        })
+    
         ctx.body = {
             code: 0
         }
@@ -336,6 +375,7 @@ const my = async (ctx) => {
 module.exports = {
     list,
     create,
+	createe,
     edit,
     del,
     detail,
