@@ -7,6 +7,8 @@ import JobRegister from './components/JobRegister.vue'
 import WantJob from './components/WantJob.vue'
 import WantMan from './components/WantMan.vue'
 import SuperAdmin from './components/SuperAdmin.vue'
+import DataInfoz from './components/DataInfoz.vue'
+import DataInfoq from './components/DataInfoq.vue'
 import JobDetails from './components/JobDetails.vue'
 import PostList from './components/PostList.vue'
 import PostAddEditor from './components/PostAddEditor.vue'
@@ -41,6 +43,16 @@ export default new Router({
                     name: 'SuperAdmin',
                     component: SuperAdmin
                 },
+				{
+				    path: '/datainfoz',
+				    name: 'DataInfoz',
+				    component: DataInfoz
+				},
+				{
+				    path: '/datainfoq',
+				    name: 'DataInfoq',
+				    component: DataInfoq
+				},
                 {
                     path: '/jobdetails',
                     name: 'jobdetails',
