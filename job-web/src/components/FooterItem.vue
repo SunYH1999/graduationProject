@@ -1,7 +1,7 @@
 <template>
     <!--页面底部组件-->
     <div class="FooterItem">
-        Copyright © songjiyu
+        Copyright © sunyuhang
     </div>
 </template>
 

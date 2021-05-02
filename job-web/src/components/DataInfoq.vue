@@ -46,9 +46,9 @@
 const TICKS = ["2012-09", "2013-05", "2014-01", "2014-09", "2015-05", "2016-01", "2016-09", "2017-05", "2018-02"];
 export default {
   mounted(){
-    // $.getJSON('/assets/data/salesTrend.json',data=>{
-    //   this.$data.data=data;
-    // });
+    $.getJSON('/assets/data/salesTrend.json',data=>{
+      this.$data.data=data;
+    });
   },
   methods:{ },
   data() {
