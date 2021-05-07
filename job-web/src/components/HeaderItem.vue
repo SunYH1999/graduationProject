@@ -58,18 +58,28 @@
     }
 </script>
 
-<style scoped lang="stylus">
-    .content
-        padding-top 20px
-        height 70px
-        line-height 70px
-        display flex
-        justify-content space-between
-        margin-bottom 20px
-        .logo
-            height 70px
-            img
-                height 70px
-    .username
-        margin-right 20px
+<style scoped>
+    .content {
+		padding-top: 20px;
+        height: 70px;
+        line-height: 70px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+	}
+        
+    .logo {
+		height: 100px;
+	}
+            
+    img {
+		position: absolute;
+		left: 20px;
+		height: 80px;
+	}
+                
+    .username {
+		margin-right: 20px;
+	}
+        
 </style>

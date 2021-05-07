@@ -23,6 +23,11 @@
                 <el-menu-item index="5-1">公司列表</el-menu-item>
                 <el-menu-item index="5-2">分类管理</el-menu-item>
             </el-submenu>
+			<el-submenu index="7" v-if="this.role == 3">
+			    <template slot="title">大数据</template>
+			    <el-menu-item index="7-1">招聘数据</el-menu-item>
+			    <el-menu-item index="7-2">求职数据</el-menu-item>
+			</el-submenu>
         </el-menu>
     </div>
 </template>
@@ -89,6 +94,16 @@
                     // 跳转至资讯
                     this.$router.push({
                         path: '/info'
+                    })
+                }else if(key == '7-1'){
+                    // 跳转至资讯
+                    this.$router.push({
+                        path: '/datainfoz'
+                    })
+                }else if(key == '7-2'){
+                    // 跳转至资讯
+                    this.$router.push({
+                        path: '/datainfoq'
                     })
                 }
             }
