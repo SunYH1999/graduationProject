@@ -43,9 +43,9 @@ function pieChar(){
 	                }
 	            }, 
 	            data:[
-	                {value:556, name:'正常'},
-	                {value:100, name:'告警',selected:true},
-	                {value:30, name:'离线'}
+	                {value:516, name:'女'},
+	                {value:603, name:'男',selected:true},
+
 	            ]
 	        }
 	    ]
@@ -70,7 +70,7 @@ function barChar(data){
 	        z: 22
 	    },
 	    xAxis: {
-	        data: ["NHN","TP","NP","COD"],       //横坐标
+	        data: ["互联网","翻译","文化","法律"],       //横坐标
 	        axisLabel:{
 	            textStyle: {
 	                color:'#fff',

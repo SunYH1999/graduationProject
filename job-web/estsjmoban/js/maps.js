@@ -5,7 +5,7 @@ function progress2char(){
 	progress2chart = echarts.init(document.getElementById("progress2-chart"));
 	var baifenbi = [0.333, 0.444, 0.555, 0.777, 0.888];
 	var grayBar = [1, 1, 1, 1, 1, ];
-	var xingm = ['宁波', '台州', '焦作', '邢台', '嘉兴'];
+	var xingm = ['广州', '成都', '杭州', '上海', '北京'];
 	option = {
 	    title: {
 	        text: '设备故障率排名',

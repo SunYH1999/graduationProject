@@ -1,8 +1,9 @@
 <template>
 	<div class="passage" @click="jump">
-		<div class="title">
+		<h1 class="title">
 			{{title}}
-		</div>
+		</h1>
+		<hr>
 	</div>
 </template>
 
@@ -33,10 +34,11 @@
 	}
 	.passage {
 		width: 90%;
-		height: 130px;
+		height: 50px;
 		margin: 20px auto;
-		background-color: rgba(222, 45, 45,.4);
+		/* background-color: rgba(222, 45, 45,.4); */
 	}
 	.title {
+		font-size: ;
 	}
 </style>
