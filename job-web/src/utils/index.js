@@ -9,6 +9,9 @@ export const register = data => post(`${baseUrl}/register`, data);
 // 登录账号
 export const login = data => post(`${baseUrl}/login`, data);
 
+//提交评价
+export const createEvaluate = data => post(`${baseUrl}/evaluate/create`, data);
+
 // 获取公司
 export const getCompanyDetail = data => post(`${baseUrl}/company/detail`, data);
 

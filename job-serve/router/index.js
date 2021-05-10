@@ -4,7 +4,8 @@ const {
     resume,
     company,
     category,
-    job
+    job,
+	evaluate
 } = require('../api');
 
 const types = ['get', 'post']
@@ -42,6 +43,7 @@ const post = [
     ['/job/detail', job.detail],
     ['/job/delivery', job.delivery],
     ['/job/my', job.my],
+	['/evaluate/create', evaluate.create]
     
     
 ]
