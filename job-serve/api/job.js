@@ -1,5 +1,6 @@
 const { Jobing, Job, Category, User, Company, Resume } = require('../db');
 
+// const Op = Sequelize.Op;
 // 岗位列表
 const list = async (ctx) => {
     try {
@@ -35,6 +36,49 @@ const list = async (ctx) => {
         }
     }
 }
+
+//搜索列表
+const searchlist = async (ctx) => {
+    try {
+	  const { page, pageSize, key='' } = ctx.request.body
+	  
+	    const {count: total, rows: dataList} = await Job.findAndCount({
+			
+	        include: [{
+	            model: User,
+	            attributes: ['id', 'username', 'mobile', 'email'],
+	            include: [{
+	                model: Company,
+	                attributes: ['id', 'name', 'address', 'capital', 'charge', 'identification'],
+	            }]
+	        }, {
+	            model: Category,
+	            attributes: ['id', 'name']
+	        }],
+			where: {
+			    name: key
+			  },
+	        attributes: ['id', 'name', 'workYear', 'salary', 'number', 'describe', 'condition', 'updatedAt'],
+	        offset: page * pageSize || 0,
+	  limit: pageSize || 10
+	    });
+	  
+	    ctx.body = {
+	        code: 0,
+	        total,
+	        dataList
+	    }
+	  
+    } catch (err) {
+        console.log(err)
+        ctx.body = {
+            code: 1,
+            err
+        }
+    }
+}
+
+
 
 // 岗位详情
 const detail = async (ctx) => {
@@ -335,6 +379,7 @@ const my = async (ctx) => {
 
 module.exports = {
     list,
+	searchlist,
     create,
     edit,
     del,

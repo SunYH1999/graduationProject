@@ -42,6 +42,9 @@ export const getJobDetail = data => post(`${baseUrl}/job/detail`, data);
 // 获取所有发布岗位
 export const getJobList = data => post(`${baseUrl}/job/list`, data);
 
+// 获取搜索的发布岗位
+export const getsearchJobList = data => post(`${baseUrl}/job/searchlist`, data);
+
 //获取分类列表
 export const getCategoryList = data => post(`${baseUrl}/category/list`, data);
 

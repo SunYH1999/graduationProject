@@ -1,13 +1,9 @@
 <template>
 	<!--职位列表-->
 	<div class="Position">
-		<div style="margin: 15px;">
+		<div style="margin: 15px; width: 400px;">
 			<el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
-				<el-select v-model="select" slot="prepend" placeholder="请选择">
-					<el-option label="岗位" value="1"></el-option>
-					<el-option label="公司" value="2"></el-option>
-				</el-select>
-				<el-button slot="append" icon="el-icon-search" @click='search'></el-button>
+				<el-button slot="append" icon="el-icon-search" @click='getSearchHotJobList'></el-button>
 			</el-input>
 		</div>
 		<div class="content">
@@ -56,7 +52,8 @@
 
 <script>
 	import {
-		getJobList
+		getJobList,
+		getsearchJobList
 	} from '../utils/index';
 	import {
 		getToken
@@ -81,113 +78,12 @@
 			}
 		},
 		methods: {
-			search() {
-				this.list = [{
-						"id": "3d0c8a54fe244cb9b0e78029b0cd1399",
-						"name": "前端工程师",
-						"workYear": "3年-5",
-						"salary": "10-15",
-						"number": 10,
-						"describe": "1、负责分布式平台上web产品的开发和维护；",
-						"condition": "1、具备全栈开发经验，包括网页前端、后端；",
-						"updatedAt": "2019-11-27T13:13:49.000Z",
-						"user": {
-							"id": "810452e9913647fa8a3b41fd579f710e",
-							"username": "zhaopinzhe",
-							"mobile": "18888888888",
-							"email": "zhaopinzhe@qzroc.com",
-							"company": {
-								"id": "436668e87f5e44a2913c5cc68b62ce8f",
-								"name": "QZROC公司",
-								"address": "山东省青岛市",
-								"capital": 100022,
-								"charge": "roc",
-								"identification": "000001"
-							}
-						},
-						"category": null
-					}, {
-						"id": "b08a0cbd36d448f2994aaa26ae21f065",
-						"name": "P前端开发工程师",
-						"workYear": "3年",
-						"salary": "10K",
-						"number": 10,
-						"describe": "1635465",
-						"condition": "465465",
-						"updatedAt": "2019-11-23T06:42:10.000Z",
-						"user": {
-							"id": "810452e9913647fa8a3b41fd579f710e",
-							"username": "zhaopinzhe",
-							"mobile": "18888888888",
-							"email": "zhaopinzhe@qzroc.com",
-							"company": {
-								"id": "436668e87f5e44a2913c5cc68b62ce8f",
-								"name": "QZROC公司",
-								"address": "山东省青岛市",
-								"capital": 100022,
-								"charge": "roc",
-								"identification": "000001"
-							}
-						},
-						"category": null
-					}, {
-						"id": "b08a0cbd36d448f2994aaa26ae21f065",
-						"name": "P前端开发工程师",
-						"workYear": "3年",
-						"salary": "10K",
-						"number": 10,
-						"describe": "1635465",
-						"condition": "465465",
-						"updatedAt": "2019-11-23T06:42:10.000Z",
-						"user": {
-							"id": "810452e9913647fa8a3b41fd579f710e",
-							"username": "zhaopinzhe",
-							"mobile": "18888888888",
-							"email": "zhaopinzhe@qzroc.com",
-							"company": {
-								"id": "436668e87f5e44a2913c5cc68b62ce8f",
-								"name": "QZROC公司",
-								"address": "山东省青岛市",
-								"capital": 100022,
-								"charge": "roc",
-								"identification": "000001"
-							}
-						},
-						"category": null
-					}, {
-						"id": "b08a0cbd36d448f2994aaa26ae21f065",
-						"name": "P前端开发工程师",
-						"workYear": "3年",
-						"salary": "10K",
-						"number": 10,
-						"describe": "1635465",
-						"condition": "465465",
-						"updatedAt": "2019-11-23T06:42:10.000Z",
-						"user": {
-							"id": "810452e9913647fa8a3b41fd579f710e",
-							"username": "zhaopinzhe",
-							"mobile": "18888888888",
-							"email": "zhaopinzhe@qzroc.com",
-							"company": {
-								"id": "436668e87f5e44a2913c5cc68b62ce8f",
-								"name": "QZROC公司",
-								"address": "山东省青岛市",
-								"capital": 100022,
-								"charge": "roc",
-								"identification": "000001"
-							}
-						},
-						"category": null
-					}]
-			},
 			//获取岗位列表
 			getHotJobList(val) {
 				console.log(`当前页: ${val}`);
 				let token = getToken();
 				getJobList({
-					token: token,
-					page: val - 1,
-					pageSize: 2
+					token: token
 				}).then((res) => {
 					this.total = +res.data.length
 					console.log(11111111, this.total)
@@ -206,6 +102,64 @@
 					}
 				})
 			},
+			
+			//搜索
+			getSearchHotJobList(val) {
+				console.log(`当前页: ${val}`);
+				let token = getToken();
+				getsearchJobList({
+					token: token,
+					key: this.input3
+				}).then((res) => {
+					this.total = +res.data.length
+					console.log(11111111, this.total)
+					let data = res.data
+					console.log(data)
+					if (data.code == 0) {
+						this.list = data.dataList
+						console.log(this.list)
+						this.list.map((item) => {
+							let data = item.updatedAt;
+							console.log(data)
+							item.updatedAt = data.replace(/T/, ' ').replace('.000Z', '');
+						})
+					} else {
+						this.$alert(data.msg)
+					}
+				})
+			},
+			
+			
+			
+			
+			//搜索岗位
+			// getHotJobList1(val) {
+			// 	console.log(`当前页: ${val}`);
+			// 	let token = getToken();
+			// 	getJobList({
+			// 		token: token,
+			// 		key: 'UI'
+			// 	}).then((res) => {
+			// 		this.total = +res.data.length
+			// 		console.log(11111111, this.total)
+			// 		let data = res.data
+			// 		console.log(data)
+			// 		if (data.code == 0) {
+			// 			this.list = data.dataList
+			// 			console.log(this.list)
+			// 			this.list.map((item) => {
+			// 				let data = item.updatedAt;
+			// 				console.log(data)
+			// 				item.updatedAt = data.replace(/T/, ' ').replace('.000Z', '');
+			// 			})
+			// 		} else {
+			// 			this.$alert(data.msg)
+			// 		}
+			// 	})
+			//  },
+			
+			
+			
 			// 跳转至简历详情页面
 			jumpJobDetails(id) {
 				this.$router.push({
