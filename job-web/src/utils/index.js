@@ -30,6 +30,9 @@ export const examineCompany = data => post(`${baseUrl}/company/status`, data);
 //添加岗位
 export const createJob = data => post(`${baseUrl}/job/create`, data);
 
+//删除岗位
+export const deleteJob = data => post(`${baseUrl}/job/del`, data);
+
 //获取我公司下的岗位列表
 export const getMyJobList = data => post(`${baseUrl}/job/my`, data);
 

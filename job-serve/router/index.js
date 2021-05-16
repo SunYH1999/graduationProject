@@ -39,6 +39,7 @@ const post = [
     ['/job/list', job.list],
 	['/job/searchlist', job.searchlist],
     ['/job/create', job.create],
+	['/job/del', job.del],
     ['/job/edit', job.edit],
     ['/job/delete', job.del],
     ['/job/detail', job.detail],
