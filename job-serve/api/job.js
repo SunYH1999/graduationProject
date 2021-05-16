@@ -37,6 +37,49 @@ const list = async (ctx) => {
     }
 }
 
+
+
+// 数据
+const data = async (ctx) => {
+    try {
+        const { page, pageSize } = ctx.request.body
+
+        const {count: total, rows: dataList} = await Job.findAndCount({
+            include: [{
+                model: User,
+                attributes: ['id', 'username', 'mobile', 'email'],
+                include: [{
+                    model: Company,
+                    attributes: ['id', 'name', 'address', 'capital', 'charge', 'identification'],
+                }]
+            }, {
+                model: Category,
+                attributes: ['id', 'name']
+            }],
+            attributes: ['id', 'name', 'workYear', 'salary', 'number', 'describe', 'condition', 'updatedAt'],
+            offset: page * pageSize || 0,
+      limit: pageSize || 10
+        });
+
+        ctx.body = {
+            code: 0,
+            total,
+            dataList
+        }
+    } catch (err) {
+        console.log(err)
+        ctx.body = {
+            code: 1,
+            err
+        }
+    }
+}
+
+
+
+
+
+
 //搜索列表
 const searchlist = async (ctx) => {
     try {

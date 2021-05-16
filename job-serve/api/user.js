@@ -57,6 +57,36 @@ const register = async (ctx) => {
     
 }
 
+//数据
+const data = async (ctx) => {
+	try {	  
+	    const {count: total, rows: dataList} = await Resumes.findAndCount({
+			where: {
+			    sex: 1
+			  },
+	        
+	        //attributes: ['id', 'name', 'workYear', 'salary', 'number', 'describe', 'condition', 'updatedAt'],
+	        offset: page * pageSize || 0,
+			limit: pageSize || 10
+	    });
+	  
+	    ctx.body = {
+	        code: 0,
+	        total,
+	        man: total/dataList,
+			woman: (dataList-total)/dataList
+	    }
+	  
+	} catch (err) {
+	    console.log(err)
+	    ctx.body = {
+	        code: 1,
+	        err
+	    }
+	}    
+}
+
+
 module.exports = {
     login,
     register
