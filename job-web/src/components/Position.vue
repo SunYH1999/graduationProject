@@ -41,10 +41,11 @@
 						</div>
 					</div>
 				</div>
-				<el-pagination class="page" @current-change="getHotJobList" layout="prev, pager, next" :page-count="3">
+				<el-pagination v-if="this.input3" class="page" @current-change="getSearchHotJobList" layout="prev, pager, next" :page-count="this.total">
 				</el-pagination>
-
+				<el-pagination v-else="!this.input3" class="page" @current-change="getHotJobList" layout="prev, pager, next" :page-count="this.total">
 				</el-pagination>
+				
 			</div>
 		</div>
 	</div>
@@ -83,9 +84,11 @@
 				console.log(`当前页: ${val}`);
 				let token = getToken();
 				getJobList({
+					page: val-1,
+					pageSize: 10,
 					token: token
 				}).then((res) => {
-					this.total = +res.data.length
+					this.total = Math.ceil(+res.data.total/10) 
 					console.log(11111111, this.total)
 					let data = res.data
 					console.log(data)
@@ -109,9 +112,11 @@
 				let token = getToken();
 				getsearchJobList({
 					token: token,
+					page: val-1,
+					pageSize: 10,
 					key: this.input3
 				}).then((res) => {
-					this.total = +res.data.length
+					this.total = Math.ceil(+res.data.total/10)
 					console.log(11111111, this.total)
 					let data = res.data
 					console.log(data)
@@ -128,35 +133,6 @@
 					}
 				})
 			},
-			
-			
-			
-			
-			//搜索岗位
-			// getHotJobList1(val) {
-			// 	console.log(`当前页: ${val}`);
-			// 	let token = getToken();
-			// 	getJobList({
-			// 		token: token,
-			// 		key: 'UI'
-			// 	}).then((res) => {
-			// 		this.total = +res.data.length
-			// 		console.log(11111111, this.total)
-			// 		let data = res.data
-			// 		console.log(data)
-			// 		if (data.code == 0) {
-			// 			this.list = data.dataList
-			// 			console.log(this.list)
-			// 			this.list.map((item) => {
-			// 				let data = item.updatedAt;
-			// 				console.log(data)
-			// 				item.updatedAt = data.replace(/T/, ' ').replace('.000Z', '');
-			// 			})
-			// 		} else {
-			// 			this.$alert(data.msg)
-			// 		}
-			// 	})
-			//  },
 			
 			
 			
