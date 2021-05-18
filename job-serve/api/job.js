@@ -82,6 +82,8 @@ const data = async (ctx) => {
 
 //搜索列表
 const searchlist = async (ctx) => {
+	const Sequelize = require('sequelize');
+	const Op = Sequelize.Op;
     try {
 	  const { page, pageSize, key='' } = ctx.request.body
 	  
@@ -99,7 +101,10 @@ const searchlist = async (ctx) => {
 	            attributes: ['id', 'name']
 	        }],
 			where: {
-			    name: key
+			   // name: key,
+			   name: {
+				   [Op.like]: `%${key}%`
+			   }
 			  },
 	        attributes: ['id', 'name', 'workYear', 'salary', 'number', 'describe', 'condition', 'updatedAt'],
 	        offset: page * pageSize || 0,

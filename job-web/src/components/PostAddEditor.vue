@@ -104,7 +104,7 @@
                             category: this.ruleForm.category,
                             workYear: this.ruleForm.workYear,
                             salary: this.ruleForm.salary,
-                            number: 10,
+                            number: this.ruleForm.number,
                             describe: this.ruleForm.describe,
                             condition: this.ruleForm.condition
                         }).then((res) => {
