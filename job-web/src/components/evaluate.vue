@@ -1,31 +1,31 @@
 <template>
-	<div>
+	<div style="padding: 50px;">
 		<div class="block">
-			<span class="demonstration">区分颜色</span>
+			<span class="demonstration">公司真实性</span>
 			<el-rate v-model="value1" :colors="colors">
 			</el-rate>
 		</div>
 
 		<div class="block">
-			<span class="demonstration">区分颜色</span>
+			<span class="demonstration">岗位真实性</span>
 			<el-rate v-model="value2" :colors="colors">
 			</el-rate>
 		</div>
 
 		<div class="block">
-			<span class="demonstration">区分颜色</span>
+			<span class="demonstration">面试体验</span>
 			<el-rate v-model="value3" :colors="colors">
 			</el-rate>
 		</div>
 
 		<div class="block">
-			<span class="demonstration">区分颜色</span>
+			<span class="demonstration">处理速度</span>
 			<el-rate v-model="value4" :colors="colors">
 			</el-rate>
 		</div>
 
 		<div class="block">
-			<span class="demonstration">区分颜色</span>
+			<span class="demonstration">公司推荐</span>
 			<el-rate v-model="value5" :colors="colors">
 			</el-rate>
 		</div>
@@ -60,10 +60,14 @@
 				let token = getToken();
 				console.log(token)
 				console.log(11111,this.value2)
-				
+				this.$alert("提交成功").then(() => {
+				    this.$router.replace({
+				        path: '/mesendpost'
+				    })
+				})
 				createEvaluate({
 					token: token,
-				    companyname: '水滴',
+				    companyname: '健康科技有限公司',
 				    value1: this.value1,
 				    value2: this.value2,
 				    value3: this.value3,

@@ -60,7 +60,8 @@
                     number: '',
                     describe: '',
                     condition: '',
-                    categoryList: []
+                    categoryList: [],
+					jobData: 0
                 },
                 rules: {
                     name: [
@@ -115,6 +116,7 @@
                                     this.$router.push({
                                         path: '/postlist'
                                     })
+									var jobData = jobData + 1
                                 })
                             }else{
                                 this.$alert(data.errMsg)
@@ -126,6 +128,7 @@
                     }
                 });
             },
+			
             resetForm(formName) {
                 this.$refs[formName].resetFields();
             },

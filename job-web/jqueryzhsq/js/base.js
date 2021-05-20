@@ -38,7 +38,7 @@ function randomData() {
 		//backgroundColor: '#FFFFFF',
 		
 		title: {
-			text: '岗位来源分析',
+			text: '人口来源分析',
 			textStyle:{color:'#fff'},
 			//subtext: '纯属虚构',
 			x:'center'
@@ -59,7 +59,7 @@ function randomData() {
 			color: ['#ff0', '#ffff00', '#0E94EB','#6FBCF0', '#F0F06F', '#00CC00']
 		},
 		series: [{
-			name: '岗位来源分析',
+			name: '人口来源分析',
 			type: 'map',
 			mapType: 'china', 
 			roam: true,
@@ -115,7 +115,7 @@ option = {
     legend: {
         orient: 'vertical',
         left: 'left',
-        data: ['互联网','医疗','金融','娱乐','教育'],
+        data: ['A类职业','B类职业','C类职业','D类职业','E类职业'],
         textStyle: {color: '#fff'}
     },
     
@@ -128,16 +128,16 @@ option = {
 	},
     series : [
         {
-            name: '岗位分析',
+            name: '人员分析',
             type: 'pie',
             radius : '55%',
             center: ['50%', '60%'],
             data:[
-                {value:11335, name:'互联网'},
-                {value:2310, name:'医疗'},
-                {value:8234, name:'金融'},
-                {value:1135, name:'娱乐'},
-                {value:1548, name:'教育'}
+                {value:335, name:'A类职业'},
+                {value:310, name:'B类职业'},
+                {value:234, name:'C类职业'},
+                {value:135, name:'D类职业'},
+                {value:1548, name:'E类职业'}
             ],
           
             itemStyle: {
@@ -169,12 +169,12 @@ option = {
     legend: {
         orient: 'vertical',
         x: 'left',
-        data:['18-30','31-40','41-50','51-60','65岁以上','未标明'],
+        data:['18-30','31-40','41-50','未标明'],
         textStyle: {color: '#fff'}
     },
     series: [
         {
-            name:'招聘年龄分布',
+            name:'人员年龄分布',
             type:'pie',
             radius: ['30%', '55%'],
             avoidLabelOverlap: false,
@@ -197,8 +197,9 @@ option = {
                 }
             },
             data:[
-                {value:8335, name:'20-30'},
+                {value:335, name:'18-30'},
                 {value:310, name:'31-40'},
+                {value:234, name:'41-50'},
                 {value:1548, name:'未标明'}
             ]
         }

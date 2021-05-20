@@ -68,7 +68,8 @@
                     describe: '',
                     address: '',
                     category: '',
-                    company: ''
+                    company: '',
+					resumeData: 0
                 }
 
             }
@@ -100,7 +101,7 @@
                 let token = getToken();
                 let jobId = this.$route.query.id
                 let resId = resumeId
-
+				var resumeData = resumeData+1
                 deliveryJob({
                     token,
                     jobId,
@@ -112,7 +113,9 @@
                         this.$alert("投递成功")
                     }
                 })
+				
             },
+			
             // 检查我是否已添加简历
             checkMyResume() {
                 let token = getToken();

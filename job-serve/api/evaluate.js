@@ -3,7 +3,7 @@ const { Evaluate } = require('../db');
 
 // 提交评价
 const create = async (ctx) => {
-    try {
+
         const {
             companyname,
             value1,
@@ -29,13 +29,7 @@ const create = async (ctx) => {
         ctx.body = {
             code: 0
         }
-    } catch (err) {
-        console.log(err)
-        ctx.body = {
-            code: 1,
-            err
-        }
-    }
+    
 
 }
 
