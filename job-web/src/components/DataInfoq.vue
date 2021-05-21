@@ -1,6 +1,9 @@
 <template>
 	<!-- <div id="roomTypeCheckIn"></div> -->
-	<a href="http://127.0.0.1:8848/job-web/estsjmoban/qiuzhi.html">点击查看求职数据</a>
+	<button>
+		<a href="http://127.0.0.1:8848/job-web/estsjmoban/qiuzhi.html">点击查看求职数据</a>
+	</button>
+	
 </template>
 
 <script>
